@@ -161,10 +161,35 @@ export default {
 @media (max-width: 767px) {
   .footer-container {
     flex-direction: column;
+    gap:0;
+    margin:0;
+    padding: 0;
   }
 
   .footer-column {
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    padding: 0;
+    border-bottom: 1px solid #333;
+
   }
+  .footer-column h3 {
+    font-size: 16px;
+    margin: 0;
+    padding: 12px 0;
+    display: flex;
+   
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-column ul {
+    margin:0;
+    padding:5px  10px 10px 10px;
+  }
+
+  .footer-column ul li {
+    margin-bottom: 6px;
+  }
+ 
 }
 </style>

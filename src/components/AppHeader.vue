@@ -1,100 +1,135 @@
 <template>
-    <header>
-      <nav>
-        <!-- logo on the left -->
-         <img src="@/assets/elegence_civil_arc_logo.jpg" alt="Logo" class="logo">
-        <ul>
-          <!-- <li><a href="#">Home</a></li>
-          <li><a href="/about">About</a></li> -->
-          <li><router-link to="/">Home</router-link></li>
-        
-          <li><a href="/services">Services</a></li>
-          <li><a href="/project">Projects</a></li>
-          <li><router-link to="/contact">Contact Us</router-link></li>
-          
-          <!-- <li><a href="#">Blog</a></li> -->
-          <!-- <li><a href="#">Contact</a></li> -->
-          
-        </ul>
-      </nav>
-    </header>
-    
-  </template>
-  
-  <script>
-  export default {
-    name: "AppHeader",
-    
-  };
-  </script>
-  
-  <style scoped>
-/* Header styles */
+  <header>
+    <nav>
+      <!-- Logo -->
+      <img src="@/assets/elegence_civil_arc_logo.jpg" alt="Logo" class="logo" />
+
+      <!-- Hamburger menu button (only visible on mobile) -->
+      <button class="menu-toggle" @click="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navigation links -->
+      <ul :class="{ 'nav-links': true, 'show': menuOpen }">
+        <li><router-link to="/">Home</router-link></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/project">Projects</a></li>
+        <li><router-link to="/contact">Contact Us</router-link></li>
+      </ul>
+    </nav>
+  </header>
+</template>
+
+<script>
+export default {
+  name: "AppHeader",
+  data() {
+    return {
+      menuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+  },
+};
+</script>
+
+<style scoped>
+/* Header */
 header {
-  background-color: #000; /* black background color */
-
+  background-color: #000;
+  box-sizing: border-box;
 }
 
+/* Nav */
 nav {
-  width: 99%; /*Set navbar width to 100%*/
-  padding-top: 50px;
-  padding-bottom: 50px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
-.logo{
-  height: auto;
+
+/* Logo stays on the left */
+.logo {
   width: 90px;
-  /* object-fit: contain; */
-  margin-right: 800px;
   max-height: 50px;
 }
-nav ul {
-  list-style-type: none;
+
+/* Navigation links (default desktop) */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-nav ul li:last-child {
-  margin-right: 0; /* remove margin from the last li element */
-  justify-content:center ;
-}
-
-nav ul li a {
-  color: #fff; /* white color for the links */
+.nav-links li a,
+.nav-links li router-link {
+  color: #fff;
   text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
+/* Hamburger Button (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* MOBILE STYLES */
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    flex-wrap: wrap;
   }
 
-  .logo {
-    margin: 0 0 15px 0;
-    width: 70px;
-    max-height: 40px;
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    z-index: 1001;
   }
 
-  nav ul {
+  .nav-links {
+    display: none;
     flex-direction: column;
     width: 100%;
+    background-color: #000;
     text-align: center;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 0;
   }
 
-  nav ul li {
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
     margin: 10px 0;
   }
 }
-
 </style>
