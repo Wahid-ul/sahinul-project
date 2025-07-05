@@ -329,15 +329,20 @@ toggleImageSize(index) {
   /* background-color: rgb(51, 54, 56); */
   /* margin-bottom: 200px; */
   position: relative;
-  /* bottom: 0; */
-  /* width: 100%; */
-  /* margin-top: calc(100vh-100%); */
-  /* margin-top: 3%; */
+  width: 100%; /* Ensure the section takes full width */
+  overflow: hidden; /* Ensure video doesn't overflow its container */
 
 }
 .second-part video {
   width: 100%; /* Ensure the video fills the entire width of its container */
   height: auto; /* Maintain the video's aspect ratio */
+  display: block; /* Ensure video behaves like a block element */
+}
+
+@media (max-width: 768px) {
+  .second-part video {
+    width: 100%; /* Adjust video width for smaller screens */
+  }
 }
 .work-description {
   background: linear-gradient(to bottom right, #1e1e1e, #2c2c2c);
