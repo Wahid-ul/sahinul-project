@@ -1,30 +1,20 @@
 <template>
   <div id="app">
     <Header />
-    <Hero />
-    <About />
-    <FeaturedProducts />
-    <Testimonials />
-    <Contact />
-    <Footer />
+    <router-view />
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import Header from "./components/AppHeader.vue";
-import Hero from "./components/AppHero.vue";
-
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Hero,
-   
+    AppFooter
   },
 };
 </script>
-
-<style>
-/* CSS styles can be kept in the same styles.css file or here */
-</style>
