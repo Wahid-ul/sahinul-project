@@ -60,7 +60,7 @@ export default {
       formData.append('title', this.title);
 
       try {
-        const res = await fetch('http://localhost:5000/api/gallery/upload', {
+        const res = await fetch('https://elegence-civil-arc-server.onrender.com/api/gallery/upload', {
           method: 'POST',
           credentials: 'include',
           body: formData
