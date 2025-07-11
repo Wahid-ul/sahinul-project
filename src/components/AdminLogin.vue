@@ -30,7 +30,7 @@ export default {
   methods: {
     async login() {
       try {
-        const res = await fetch('http://localhost:5000/admin/login', {
+        const res = await fetch('https://elegence-civil-arc-server.onrender.com/admin/login', {
           method: 'POST',
           credentials: 'include',
           headers: { 'Content-Type': 'application/json' },

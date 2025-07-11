@@ -204,7 +204,7 @@
 
       async fetchPhotos() {
       try {
-        const response = await fetch('http://localhost:5000/api/gallery', {
+        const response = await fetch('https://elegence-civil-arc-server.onrender.com/api/gallery', {
           credentials: 'include'
         });
         const data = await response.json();

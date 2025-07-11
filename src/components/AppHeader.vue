@@ -41,7 +41,8 @@ export default {
 <style scoped>
 /* Header */
 header {
-  background-color: #000;
+  
+  background-color: #2f2e2e;
   box-sizing: border-box;
 }
 
@@ -55,6 +56,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  
 }
 
 /* Logo stays on the left */
@@ -74,7 +76,7 @@ nav {
 
 .nav-links li a,
 .nav-links li router-link {
-  color: #fff;
+  color: #f2e9e9;
   text-decoration: none;
   font-weight: 500;
   white-space: nowrap;

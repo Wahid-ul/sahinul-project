@@ -48,7 +48,7 @@ export default {
     loggedIn: false
   }),
   async mounted() {
-    const res = await fetch('http://localhost:5000/projects', {
+    const res = await fetch('https://elegence-civil-arc-server.onrender.com/projects', {
       method: 'GET',
       credentials: 'include'
     });
@@ -68,7 +68,7 @@ export default {
         formData.append('image', file);
 
         try {
-          const res = await fetch('http://localhost:5000/upload_image', {
+          const res = await fetch('https://elegence-civil-arc-server.onrender.com/upload_image', {
             method: 'POST',
             credentials: 'include',
             body: formData
@@ -87,7 +87,7 @@ export default {
     },
 
     async submit() {
-      const r = await fetch('http://localhost:5000/admin/add_project', {
+      const r = await fetch('https://elegence-civil-arc-server.onrender.com/admin/add_project', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

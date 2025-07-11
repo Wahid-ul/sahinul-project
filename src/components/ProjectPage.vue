@@ -131,7 +131,7 @@ export default {
     },
     async fetchProjects() {
       try {
-        const res = await fetch("http://localhost:5000/projects");
+        const res = await fetch("https://elegence-civil-arc-server.onrender.com/projects");
         const data = await res.json();
         this.projects = data.map(p => ({
           ...p,

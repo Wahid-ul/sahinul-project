@@ -101,7 +101,7 @@
         };
         try {
             // Send data to Flask backend via POST request
-            const response = await axios.post('http://localhost:5000/service_mail', formData);
+            const response = await axios.post('https://elegence-civil-arc-server.onrender.com/service_mail', formData);
             alert(response.data.message || "Form submitted successfully!");
             
             
